@@ -1,0 +1,91 @@
+========================================================
+  track_suspension.py  —  All Run Options
+========================================================
+
+--------------------------------------------------------
+INSTALL DEPENDENCIES (run once)
+--------------------------------------------------------
+pip install opencv-contrib-python numpy matplotlib openpyxl
+
+
+--------------------------------------------------------
+COMMAND-LINE FLAGS
+--------------------------------------------------------
+
+--video       (required)
+              Path to your input video file.
+              Example: --video my_clip.mp4
+
+--px-per-mm   (optional, default: off)
+              Pixel-to-millimetre scale factor.
+              When set, all output (Excel, plot, HUD) is in mm.
+              To find your value: measure something on the car
+              with a known size (e.g. wheel diameter = 630 mm),
+              count its pixel span, then divide: pixels ÷ mm.
+              Example: --px-per-mm 5.2
+
+--tracker     (optional, default: CSRT)
+              OpenCV tracking algorithm to use.
+              Choices:
+                CSRT   — most accurate, slower
+                KCF    — fast, good for high-contrast targets
+                MIL    — robust to partial occlusion
+                MOSSE  — fastest, least accurate
+              Example: --tracker KCF
+
+
+--------------------------------------------------------
+EXAMPLE COMMANDS
+--------------------------------------------------------
+
+# Basic run (pixels, CSRT tracker)
+python track_suspension.py --video my_clip.mp4
+
+# With real-world units
+python track_suspension.py --video my_clip.mp4 --px-per-mm 5.2
+
+# With a different tracker
+python track_suspension.py --video my_clip.mp4 --tracker KCF
+
+# All options combined
+python track_suspension.py --video my_clip.mp4 --px-per-mm 4.8 --tracker KCF
+
+
+--------------------------------------------------------
+IN-FILE SETTINGS  (edit at the top of track_suspension.py)
+--------------------------------------------------------
+
+MAX_DISPLAY_W   default: 1280   Max preview window width  (pixels)
+MAX_DISPLAY_H   default: 720    Max preview window height (pixels)
+OUTPUT_VIDEO    default: track_suspension_out.mp4
+OUTPUT_PLOT     default: suspension_displacement.png
+OUTPUT_CSV      default: suspension_data.csv  (also sets the .xlsx name)
+
+
+--------------------------------------------------------
+ROI SELECTION CONTROLS  (shown when picking targets)
+--------------------------------------------------------
+
+Drag mouse      Draw the bounding box
+Enter / Space   Confirm selection
+C               Cancel and redraw
+
+
+--------------------------------------------------------
+LIVE TRACKING CONTROLS
+--------------------------------------------------------
+
+Q               Stop early — data up to that frame is still saved
+
+
+--------------------------------------------------------
+OUTPUT FILES
+--------------------------------------------------------
+
+track_suspension_out.mp4      Annotated video with live HUD overlay
+suspension_data.xlsx          Excel file with:
+                                Sheet 1 — frame-by-frame data table
+                                Sheet 2 — embedded line charts
+suspension_displacement.png   Two-panel matplotlib plot
+
+========================================================

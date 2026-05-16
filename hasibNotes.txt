@@ -1,0 +1,11 @@
+We made a program that detects wheels. 
+Next to wheels we also detect the wheel well, by projecting a vertical line from the mid-point of the upper line of the bounding box a detected wheel.
+By doing this we ensure to get accurate data regarding the wheel vibration/oscillation.
+We save this information regarding the wheel-wheelwell in a csv file for later graph plotting. 
+EQE 01 has 12*60= 720 frames.
+Wheels appear at 323 and end at 510.
+
+We add processed videos to the database. We will process each video(longs verisons, not short).
+Use google analytics.
+
+  
