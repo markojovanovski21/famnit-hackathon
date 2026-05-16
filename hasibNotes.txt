@@ -5,4 +5,7 @@ We save this information regarding the wheel-wheelwell in a csv file for later g
 EQE 01 has 12*60= 720 frames.
 Wheels appear at 323 and end at 510.
 
+We add processed videos to the database. We will process each video(longs verisons, not short).
+Use google analytics.
+
   
