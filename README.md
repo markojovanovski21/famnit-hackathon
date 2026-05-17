@@ -13,13 +13,13 @@ Developed by **Team Kernel Panic** for the **FAMNIT Hackathon 2026**.
 * **Tracking Instability:** Standard vehicle-level bounding boxes are too unstable and unreliable for precise micro-geometry tracking and suspension analysis calculations.
 
 ### Our Innovation
-* **Zebra-Striped Preprocessing & Correction:** Advanced video reshaping and resizing to comply with industry standards for real-time edge processing.
-* **Dual-Bounding Box Strategy:** A custom architecture using a dual-tracking approach that logs both the overall vehicle body and individual wheels.
+* **Preprocessing & Correction:** Advanced video reshaping and resizing to comply with industry standards for real-time edge processing.
+* **Double Wheel Identification:** A custom architecture using a dual-tracking approach that logs both the overall vehicle body and individual wheels.
 * **Micro-Displacement Tracking:** Measures the exact vertical distance variation (vibration effect in pixels) between the wheel well and the custom-detected wheel bounding box, removing the need for auxiliary physical markers.
 
 ## 📊 Experimental Results & Data Logging
-BumpIQ was comprehensively evaluated across **3 different vehicle categories and suspension styles** (including a Skoda, a Passat, and a specialized EV platform). 
-* **Computer Vision Metrics:** Achieved high-precision confidence scores (e.g., Car detection at `0.88`, Wheel detection at `0.91` - `0.92`).
+BumpIQ was comprehensively evaluated across **3 different vehicle categories and suspension styles** (including a Skoda, a Passat, and Mercedes EQE). 
+* **Computer Vision Metrics:** Achieved high-precision confidence scores (e.g., Wheel detection at `0.91` - `0.92`).
 * **Motion Profiling:** Extracts raw sensor data to log a complete *Vertical Wheel Oscillation Profile* and *Vertical Acceleration Signature* (measuring acceleration in $m/s^2$ over time) to map the static equilibrium baseline against real-time impact spikes.
 
 ## ☁️ Cloud Architecture & Tech Stack
@@ -28,6 +28,10 @@ BumpIQ leverages **Google Cloud Services** to support high-throughput, scalable,
 * **Cloud Firestore:** Hosting analysis metrics, user sessions, and comprehensive processing histories.
 * **Google Cloud Storage:** Scalable object storage holding raw video footage uploads and output processed media.
 * **Gemini API:** Providing state-of-the-art AI-assisted evaluation and deep contextual analysis of vehicle response profiles.
+
+![System Architecture](1.png)
+![System Architecture](2.png)
+![System Architecture](3.png)
 
 ---
 *Created with 💻 by Team Kernel Panic.*
